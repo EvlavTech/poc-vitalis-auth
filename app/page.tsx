@@ -9,18 +9,8 @@ export default function Home() {
   console.log(session);
   const sendHandler = async function () {
     console.log("sent", session);
-    const result = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/access`,
-      {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${session?.authToken}`,
-        },
-      }
-    );
-    const res = await result.json();
-    console.log(res);
-    setResponse(res.data);
+    // Validate access of user.
+    setResponse("");
   };
   return (
     <div className="flex flex-col gap-20 justify-center items-center h-screen">
